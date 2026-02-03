@@ -40,6 +40,27 @@
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+        .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+}
+
+.logo-text {
+    white-space: nowrap;
+}
 
         .logo {
             font-size: 1.5rem;
