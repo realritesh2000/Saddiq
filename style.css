@@ -305,6 +305,7 @@
 
         /* --- मोबाइल --- */
         @media (max-width: 768px) {
+            
             .hamburger { display: block; }
             .nav-menu {
                 display: none;
@@ -321,4 +322,14 @@
             .hero h1 { font-size: 2.2rem; }
             .service-header { font-size: 1.2rem; }
         }
+        @media (max-width: 600px) {
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .logo-img {
+        width: 38px;
+        height: 38px;
+    }
+}
    
