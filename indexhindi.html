@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>न्यू सद्दीक़ बैंड - हाजीपुर</title>
+    <style>
+        /* --- रंग और थीम (Color Theme) --- */
+        :root {
+            --primary-blue: #003366;    /* गहरा नीला */
+            --accent-yellow: #FFD700;   /* सुनहरा पीला */
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+            --text-dark: #333333;
+            --goal-bg: #fffbe6;         /* हल्का पीला बैकग्राउंड */
+        }
+
+        /* --- सामान्य सेटिंग्स --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* --- हेडर --- */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        /* --- हीरो सेक्शन --- */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://source.unsplash.com/1600x900/?indian,wedding');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero span {
+            color: var(--accent-yellow);
+        }
+
+        .owner-name {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--accent-yellow);
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- सेक्शन सामान्य --- */
+        section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--accent-yellow);
+            display: inline-block;
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+
+        /* --- परिचय (About) --- */
+        .about-box {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 6px solid var(--primary-blue);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- विस्तृत सेवाएँ (Detailed Services Style) --- */
+        .service-detail-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-row {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-row:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
+        }
+
+        .service-header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-body {
+            padding: 25px;
+        }
+
+        .brand-sub {
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .service-desc {
+            margin-bottom: 20px;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .goal-box {
+            background-color: var(--goal-bg);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* --- गैलरी --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-placeholder {
+            background-color: #ddd;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* --- संपर्क --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-card h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* --- फुटर --- */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- मोबाइल --- */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; right: 0;
+                background-color: var(--primary-blue);
+                width: 100%;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin: 15px 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .service-header { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">न्यू सद्दीक़ बैंड</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-menu">
+            <li><a href="#home" onclick="toggleMenu()">होम</a></li>
+            <li><a href="#about" onclick="toggleMenu()">परिचय</a></li>
+            <li><a href="#services" onclick="toggleMenu()">सेवाएँ</a></li>
+            <li><a href="#gallery" onclick="toggleMenu()">गैलरी</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">संपर्क</a></li>
+        </ul>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>न्यू सद्दीक़ <span>बैंड</span></h1>
+        <p class="owner-name"> प्रो. अकबर जी</p>
+        <p>शादी, पार्टी, पूजा और हर शुभ अवसर के लिए हाजीपुर का सबसे बेहतरीन बैंड।</p>
+        <div>
+            <button class="btn btn-primary" onclick="makeCall()">📞 कॉल करें</button>
+            <button class="btn btn-whatsapp" onclick="openWhatsApp()">💬 व्हाट्सएप</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="center-wrapper">
+            <h2 class="section-title">परिचय (About Us)</h2>
+        </div>
+        <div class="about-box">
+            <h3>न्यू सद्दीक़ बैंड में आपका स्वागत है</h3>
+            <p style="margin-top: 15px;">
+              <strong>  न्यू सद्दीक़ बैंड </strong> (राजेंद्र चौक, हाजीपुर) <strong>प्रो. अकबर </strong> जी के नेतृत्व में वर्षों से आपकी खुशियों में संगीत भर रहा है।
+                हम हर आयोजन को अनुशासन, जोश और मधुर संगीत के साथ यादगार बनाते हैं।
+            </p>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: #f4f4f4;">
+        <div class="center-wrapper">
+            <h2 class="section-title">हमारी सेवाएँ</h2>
+            <p style="margin-bottom: 30px;"> <strong>हम निम्नलिखित क्षेत्रों में अपनी सर्वश्रेष्ठ सेवाएँ प्रदान करते हैं:</strong>  </p>
+        </div>
+
+        <div class="service-detail-container">
+
+            <div class="service-row">
+                <div class="service-header">
+                    <span>🎺</span> शादी बैंड (Shaadi Band)
+                </div>
+                <div class="service-body">
+                    <span class="brand-sub">न्यू सद्दीक़ बैंड, हाजीपुर</span>
+                    <p class="service-desc">
+                        हमारी खासियत है शादी और बारात को संगीत से यादगार बनाना।
+                        बैंड की मधुर धुनों, ढोल-नगाड़ों और देशभक्ति/बॉलीवुड गीतों के साथ हम आपके खास दिन को और भी खास बना देते हैं।
+                    </p>
+                    <div class="goal-box">
+                        👉 हमारा उद्देश्य है आपके विवाह उत्सव को संगीत, जोश और उमंग से भर देना।
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-header">
+                    <span>🎂</span> जन्मदिन पार्टी (Birthday Party)
+                </div>
+                <div class="service-body">
+                    <span class="brand-sub">न्यू सद्दीक़ बैंड, हाजीपुर</span>
+                    <p class="service-desc">
+                        हम आपके जन्मदिन को संगीत और उत्साह से भरने के लिए तैयार हैं।
+                        बैंड की मधुर धुनों, ढोल-नगाड़ों और आधुनिक गीतों के साथ हम आपके खास दिन को और भी यादगार बना देते हैं।
+                    </p>
+                    <div class="goal-box">
+                        👉 हमारा उद्देश्य है आपके जन्मदिन को संगीत, खुशी और उमंग से भर देना।
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-header">
+                    <span>🕯️</span> मरणी एवं शोक कार्यक्रम
+                </div>
+                <div class="service-body">
+                    <span class="brand-sub">न्यू सद्दीक़ बैंड, हाजीपुर</span>
+                    <p class="service-desc">
+                        हम कठिन समय में भी आपके साथ खड़े हैं।
+                        मरणी (अंतिम संस्कार), श्रद्धांजलि सभा और शोक कार्यक्रमों में हमारी बैंड सेवाएँ वातावरण को गंभीरता, शांति और सम्मान से भर देती हैं।
+                    </p>
+                    <div class="goal-box">
+                        👉 हमारा उद्देश्य है आपके प्रियजनों की अंतिम विदाई को सम्मानजनक और गरिमामय बनाना।
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-header">
+                    <span>🚩</span> राजनीतिक एवं सामाजिक रैली
+                </div>
+                <div class="service-body">
+                    <span class="brand-sub">न्यू सद्दीक़ बैंड, हाजीपुर</span>
+                    <p class="service-desc">
+                        हम राजनीतिक और सामाजिक रैलियों को ऊर्जा और जोश से भरने के लिए समर्पित हैं।
+                        बैंड की धुनें और ढोल-नगाड़ों की आवाज़ रैली को और भी प्रभावशाली और उत्साहपूर्ण बना देती हैं।
+                    </p>
+                    <div class="goal-box">
+                        👉 हमारा उद्देश्य है आपकी रैली को संगीत और जोश से भरकर लोगों के दिलों तक पहुँचाना।
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-header">
+                    <span>🥁</span> राष्ट्रीय कार्यक्रम
+                </div>
+                <div class="service-body">
+                    <span class="brand-sub">न्यू सद्दीक़ बैंड, हाजीपुर</span>
+                    <p class="service-desc">
+                        हम राष्ट्रीय पर्वों और सरकारी आयोजनों को संगीत और देशभक्ति से भरने के लिए समर्पित हैं।
+                        स्वतंत्रता दिवस, गणतंत्र दिवस, झंडा वंदन, सांस्कृतिक कार्यक्रम और सरकारी समारोहों में हमारी बैंड सेवाएँ वातावरण को जोश और गर्व से भर देती हैं।
+                    </p>
+                    <div class="goal-box">
+                        👉 हमारा उद्देश्य है राष्ट्रीय पर्वों को संगीत, गर्व और उत्साह से भर देना।
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="center-wrapper">
+            <h2 class="section-title">फोटो गैलरी</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-placeholder">फोटो 1</div>
+            <div class="gallery-placeholder">फोटो 2</div>
+            <div class="gallery-placeholder">फोटो 3</div>
+            <div class="gallery-placeholder">फोटो 4</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="center-wrapper">
+            <h2 class="section-title">संपर्क करें</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-card">
+                <h3>पता</h3>
+                <p><strong>न्यू सद्दीक़ बैंड</strong></p>
+                <p>राजेंद्र चौक, हाजीपुर, वैशाली</p>
+                <p>बिहार, भारत</p>
+                <p>पिनकोड : 844101</p>
+            </div>
+            <div class="contact-card">
+                <h3>बुकिंग के लिए</h3>
+                <p>प्रो. अकबर जी</p>
+                <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">9931182115</p>
+                <button class="btn btn-primary" onclick="makeCall()">कॉल करें</button>
+                <button class="btn btn-whatsapp" onclick="openWhatsApp()">व्हाट्सएप करें</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 न्यू सद्दीक़ बैंड (हाजीपुर). सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <script>
+        const phoneNumber = "9931182115";
+        const whatsappNumber = "919931182115";
+
+        function makeCall() {
+            window.location.href = `tel:${phoneNumber}`;
+        }
+
+        function openWhatsApp() {
+            const message = "नमस्ते न्यू सद्दीक़ बैंड, मुझे बुकिंग के बारे में जानकारी चाहिए।";
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-menu');
+            if (window.innerWidth <= 768) {
+                nav.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
